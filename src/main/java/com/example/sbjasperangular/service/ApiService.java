@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.sbjasperangular.model.City;
+import com.example.sbjasperangular.model.CityCountry;
 import com.example.sbjasperangular.model.Country;
 import com.example.sbjasperangular.report.CustomJRDataSource;
+import com.example.sbjasperangular.repository.CityCountryRepository;
 import com.example.sbjasperangular.repository.CityRepository;
 import com.example.sbjasperangular.repository.CountryRepository;
 
@@ -32,9 +34,30 @@ public class ApiService {
 	private CityRepository cityRepository;
 	@Autowired
 	private CountryRepository countryRepository;
+	@Autowired
+	private CityCountryRepository cityCountryRepository;
+
+	/**
+	 * あらかじめ結合済みのEntity Modelを用意し、そこに格納する。画面と１：１の関係にしやすい。
+	 * @param cityName
+	 * @param countryName
+	 * @param population
+	 */
+	public void addCityCountry(String cityName, String countryName, Long population) {
+		CityCountry city = new CityCountry();
+		city.setName(cityName);
+		city.setPopulation(population);
+		city.setCountryName(countryName);
+		cityCountryRepository.save(city);
+	}
 
 	public void addCity(String cityName, String countryName, Long population) {
-		City city = new City().setName(cityName).setPopulation(population);
+		// setXXXの戻り値を自身の型にするやりかた→メソッドチェーンができる。
+//		City city = new City().setName(cityName).setPopulation(population);
+		City city = new City();
+		city.setName(cityName);
+		city.setPopulation(population);
+
 		Country country = countryRepository.findOne(countryName);
 		city.setCountry(country);
 		country.addCity(city);
@@ -43,7 +66,10 @@ public class ApiService {
 	}
 
 	public void addCountry(String countryName) {
-		Country country = new Country().setName(countryName);
+		// setXXXの戻り値を自身の型にするやりかた→メソッドチェーンができる。
+//		Country country = new Country().setName(countryName);
+		Country country = new Country();
+		country.setName(countryName);
 		country = countryRepository.save(country);
 	}
 
@@ -70,5 +96,12 @@ public class ApiService {
 		addCity("Washington", "USA", 30000L);
 		addCity("Moscow", "RUSSIA", 90000L);
 		addCity("Novosibirsk", "RUSSIA", 10000L);
+
+		// 結合済みのEntity Model
+		addCityCountry("Los Angeles", "USA", 10000L);
+		addCityCountry("New York", "USA", 20000L);
+		addCityCountry("Washington", "USA", 30000L);
+		addCityCountry("Moscow", "RUSSIA", 90000L);
+		addCityCountry("Novosibirsk", "RUSSIA", 10000L);
 	}
 }

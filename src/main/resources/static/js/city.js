@@ -38,6 +38,17 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
     });
 } ])
 
+.factory('CityCountry', [ '$resource', function($resource) {
+    return $resource('/rest/citycountry', {  }, {
+	query : {
+	    method : 'GET',
+	    cache : false,
+	    isArray : true
+	}
+
+    });
+} ])
+
 .factory('Report', [ '$resource', function($resource) {
     return $resource('/ajax/report', {}, {
 	generate : {
