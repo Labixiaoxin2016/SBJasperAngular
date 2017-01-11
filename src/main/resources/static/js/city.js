@@ -12,7 +12,20 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 
     });
 } ])
+/*
+.factory('City', [ '$resource', function($resource) {
+    return $resource('/rest/city', {
 
+    }, {
+	query : {
+	    method : 'GET',
+	    cache : false,
+	    isArray : false
+	}
+
+    });
+} ])
+*/
 .factory('Country', [ '$resource', function($resource) {
     return $resource('/rest/city/:resourceId/country', {
 	resourceId : '@id'
@@ -36,26 +49,36 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 } ])
 
 .controller('CityCtrl', function($scope, $window, City, Country, Report) {
-    City.query({}, function(data) {
-	var j = 0;
-	$scope.cities = data._embedded.all;
-	var arrayLength = $scope.cities.length;
-	for (var i = 0; i < arrayLength; i++) {
-	    Country.query({
-		resourceId : $scope.cities[i].name
-	    }, function(data) {
-		$scope.cities[j].countryName = data.name;
-		++j;
-	    });
+	City.query({}, function(data) {
+		var j = 0;
+		$scope.cities = data._embedded.all;
+		var arrayLength = $scope.cities.length;
+		for (var i = 0; i < arrayLength; i++) {
+			// これでも取得できない。
+//			$scope.cities[i].countryName = $scope.cities[i]._links.country.name;
+			///*
+			// ここにはバグがある。
+			Country.query({
+				resourceId : $scope.cities[i].name
+			}, function(data2) {
+				$scope.cities[j].countryName = data2.name;
+//				$windows.alert($scope.cities[i].name + " " + $scope.cities[i].country);
+				++j;
+			}
+//			++j;
+			);
+//			++j;
+			// */
+		}
 
-	}
-    });
-
-    $scope.report = function() {
-	Report.generate({}, $scope.cities, function(data) {
-	    $window.location.href = '/jasper/report.pdf';
-	}, function(err) {
-	    alert(err.data.message);
 	});
-    }
+
+
+	$scope.report = function() {
+		Report.generate({}, $scope.cities, function(data) {
+			$window.location.href = '/jasper/report.pdf';
+		}, function(err) {
+			alert(err.data.message);
+		});
+	}
 });

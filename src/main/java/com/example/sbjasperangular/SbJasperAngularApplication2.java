@@ -41,7 +41,9 @@ public class SbJasperAngularApplication2 extends WebMvcConfigurerAdapter {
 	@Bean
 	public LocaleResolver localeResolver() {
 		SessionLocaleResolver slr = new SessionLocaleResolver();
-		slr.setDefaultLocale(Locale.JAPANESE);//Locale.ENGLISH
+		// 以前は指定していたが、指定するとむしろKEY→VALUE変換できなくなる。
+//		slr.setDefaultLocale(Locale.JAPANESE);//Locale.ENGLISH
+		System.out.println("Locale:" + Locale.getDefault().toString());
 		return slr;
 	}
 

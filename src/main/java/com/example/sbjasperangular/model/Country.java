@@ -17,6 +17,7 @@ public class Country implements Serializable {
     @Id
     private String name;
 
+    // fetch = FetchType.EAGER LAZY
     @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<City> cities = new ArrayList<City>();
 
