@@ -49,6 +49,8 @@ public class ApiService {
 		city.setPopulation(population);
 		city.setCountryName(countryName);
 		cityCountryRepository.save(city);
+
+		System.out.println("CityCountry : " + city.toString());
 	}
 
 	public void addCity(String cityName, String countryName, Long population) {

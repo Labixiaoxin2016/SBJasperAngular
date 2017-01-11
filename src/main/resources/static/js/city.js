@@ -71,6 +71,7 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 } ])
 
 .controller('CityCtrl', function($scope, $window, City, Country, Report) {
+	/* */
 	City.query({}, function(data) {
 		var j = 0;
 		$scope.cities = data._embedded.all;
@@ -94,8 +95,18 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 		}
 
 	});
+	/* */
+	/*
+	// [実験]なぜかうまくいかなかった。
+	CityCountry.query({
 
-
+	}, function(data) {
+		$scope.cities = data;// data._embedded.all
+		for (var i = 0; i < arrayLength; i++) {
+			$scope.cities[i].name = "hoge";
+		}
+	});
+	 */
 	$scope.report = function() {
 		Report.generate({}, $scope.cities, function(data) {
 			$window.location.href = '/jasper/report.pdf';
