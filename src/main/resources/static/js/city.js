@@ -49,6 +49,17 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
     });
 } ])
 
+.factory('CityCountry2', [ '$resource', function($resource) {
+    return $resource('/rest/citycountry2', {  }, {
+	query : {
+	    method : 'GET',
+	    cache : false,
+	    isArray : false
+	}
+
+    });
+} ])
+
 .factory('Report', [ '$resource', function($resource) {
     return $resource('/ajax/report', {}, {
 	generate : {
