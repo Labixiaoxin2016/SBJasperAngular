@@ -14,6 +14,7 @@ public class SbJasperAngularApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO 自動生成されたメソッド・スタブ
-		System.out.println("hello world !");
+//		System.out.println("hello world !");
+		System.out.println("SbJasperAngularApplication start !!!");
 	}
 }
