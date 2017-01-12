@@ -31,6 +31,28 @@ public class SbJasperAngularApplication2 extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SbJasperAngularApplication2.class, args);
+		dispPreSystemInfo(args);
+	}
+
+	private static void dispPreSystemInfo(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		System.out.println("os.name:" + System.getProperty("os.name"));
+		dumpSysInfo();
+		if(System.getProperty("os.name").startsWith("Windows")){
+			System.out.println("environment:Development");
+		}
+	}
+
+	private static void dumpSysInfo() {
+		// TODO 自動生成されたメソッド・スタブ
+		System.out.println("--------------------------------------------------------------------------");
+//		Properties prop = System.getProperties();
+//		Stream<Object> st = prop.keySet().stream();
+//		st.forEach(System.out::println);
+//		st.forEach(key -> System.out.println("" + key + " : " + System.getProperty((String)key)));
+		System.getProperties().keySet().stream()
+		.forEach(key -> System.out.println("" + key + " : " + System.getProperty((String)key)));
+		System.out.println("--------------------------------------------------------------------------");
 	}
 
 	@Bean

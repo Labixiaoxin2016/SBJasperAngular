@@ -101,7 +101,9 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 	CityCountry.query({
 
 	}, function(data) {
+		$windows.alert(data);
 		$scope.cities = data;// data._embedded.all
+		var arrayLength = $scope.cities.length;
 		for (var i = 0; i < arrayLength; i++) {
 			$scope.cities[i].name = "hoge";
 		}
