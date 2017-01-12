@@ -162,7 +162,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.example.sbjasperangular.SbJasperAngularApplication2</mainClass>
+					<mainClass>com.example.sbjasperangular.SbJasperAngularApplication3</mainClass>
 				</configuration>
 			</plugin>
 			<plugin>

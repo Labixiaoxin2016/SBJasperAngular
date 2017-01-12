@@ -1,41 +1,29 @@
-package com.example.sbjasperangular;
+package com.example.sbjasperangular.config;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
+import java.util.Locale;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-@EnableAutoConfiguration
-@ComponentScan("com.example.sbjasperangular")
+@Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
-public class SbJasperAngularApplication2 extends WebMvcConfigurerAdapter {
-/*
-	public static void main(String[] args) {
-		SpringApplication.run(SbJasperAngularApplication2.class, args);
-		dispPreSystemInfo(args);
-	}
-
-	private static void dispPreSystemInfo(String[] args) {
-		// TODO 自動生成されたメソッド・スタブ
-		System.out.println("os.name:" + System.getProperty("os.name"));
-		dumpSysInfo();
-		if(System.getProperty("os.name").startsWith("Windows")){
-			System.out.println("environment:Development");
-		}
-	}
-
-	private static void dumpSysInfo() {
-		// TODO 自動生成されたメソッド・スタブ
-		System.out.println("--------------------------------------------------------------------------");
-//		Properties prop = System.getProperties();
-//		Stream<Object> st = prop.keySet().stream();
-//		st.forEach(System.out::println);
-//		st.forEach(key -> System.out.println("" + key + " : " + System.getProperty((String)key)));
-		System.getProperties().keySet().stream()
-		.forEach(key -> System.out.println("" + key + " : " + System.getProperty((String)key)));
-		System.out.println("--------------------------------------------------------------------------");
-	}
-
+public class SbJasperAngularWebMvcConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public ApplicationSecurity applicationSecurity() {
 		return new ApplicationSecurity();
@@ -99,5 +87,4 @@ public class SbJasperAngularApplication2 extends WebMvcConfigurerAdapter {
     {
         return validator();
     }
-*/
 }
