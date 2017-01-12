@@ -9,8 +9,13 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan("com.example.sbjasperangular")
 public class SbJasperAngularApplication3 implements CommandLineRunner {
 
+	/**
+	 * Spring Boot APP : SbJasperAngularApplication3
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		SpringApplication.run(SbJasperAngularApplication3.class, args);
+		System.out.println("start Spring Boot APP : SbJasperAngularApplication3 !");
 //		dispPreSystemInfo(args);
 	}
 
@@ -20,6 +25,10 @@ public class SbJasperAngularApplication3 implements CommandLineRunner {
 		dispPreSystemInfo(args);
 	}
 
+	/**
+	 * 開発環境診断表示
+	 * @param args
+	 */
 	private static void dispPreSystemInfo(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 		System.out.println("os.name:" + System.getProperty("os.name"));
@@ -29,6 +38,9 @@ public class SbJasperAngularApplication3 implements CommandLineRunner {
 		}
 	}
 
+	/**
+	 * システム情報のダンプアウト
+	 */
 	private static void dumpSysInfo() {
 		// TODO 自動生成されたメソッド・スタブ
 		System.out.println("--------------------------------------------------------------------------");

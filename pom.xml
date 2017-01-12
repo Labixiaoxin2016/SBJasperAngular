@@ -130,11 +130,32 @@
 			<groupId>net.sourceforge.nekohtml</groupId>
 			<artifactId>nekohtml</artifactId>
 		</dependency>
-	<!--
+	<!-- -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-cassandra</artifactId>
 		</dependency>
+	<!-- -->
+		<!-- https://mvnrepository.com/artifact/org.apache.cassandra/cassandra-thrift
+		<dependency>
+			<groupId>org.apache.cassandra</groupId>
+			<artifactId>cassandra-thrift</artifactId>
+			<version>2.1.16</version>
+		</dependency>
+		-->
+		<!-- https://mvnrepository.com/artifact/org.apache.cassandra/cassandra-all -->
+		<dependency>
+			<groupId>org.apache.cassandra</groupId>
+			<artifactId>cassandra-all</artifactId>
+			<version>2.1.16</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache-extras.cassandra-jdbc/cassandra-jdbc -->
+		<dependency>
+			<groupId>org.apache-extras.cassandra-jdbc</groupId>
+			<artifactId>cassandra-jdbc</artifactId>
+			<version>1.2.5</version>
+		</dependency>
+	<!--
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>

@@ -38,6 +38,29 @@ spring-boot-starter-parent
 |org.springframework.boot|spring-boot-starter-test|test|
 
 
+## Cassandra対応
+
+### Cassandraサーバを用意
+
+前提として、Cassandraサーバを用意してください。
+以下で用意できます。
+
+```
+sudo systemctl start firewalld
+docker run --name cassandra_2_1_16 -d -p 7000:7000 -p 7199:7199 -p 9042:9042 -p 9160:9160 cassandra:2.1.16
+sudo systemctl stop firewalld
+```
+
+### キースペースを作成
+
+ToolCreateCassandraKeyspace
+を起動してください。
+
+### Spring Boot run
+
+```
+mvn spring-boot:run
+```
 
 
 
