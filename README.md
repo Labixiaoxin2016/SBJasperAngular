@@ -62,6 +62,16 @@ ToolCreateCassandraKeyspace
 mvn spring-boot:run
 ```
 
+### create columnfamily memobox
+
+
+```
+$ docker cp database_creation_keyspaceC.cql cassandra_2_1_16:/tmp/
+$ docker-enter cassandra_2_1_16
+
+# cqlsh -f /tmp/database_creation_keyspaceC.cql
+# nodetool -h 127.0.0.1 flush
+```
 
 
 

@@ -41,4 +41,12 @@ public class MemoBox {
 	@Column(value = "date")
 	private Date date;
 
+	public MemoBox(String pkey1,String pkey2,String name,String memo,Date date){
+		this.pkey1 = pkey1;
+		this.pkey2 = pkey2;
+		this.name = name;
+		this.memo = memo;
+		this.date = date;
+	}
+
 }

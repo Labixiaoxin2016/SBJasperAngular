@@ -1,13 +1,19 @@
 package com.example.sbjasperangular;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.example.sbjasperangular.cassandra.model.MemoBox;
+
 @EnableAutoConfiguration
 @ComponentScan("com.example.sbjasperangular")
 public class SbJasperAngularApplication3 implements CommandLineRunner {
+
+	@Autowired
+	private com.example.sbjasperangular.cassandra.repository.MemoBoxRepository memoBoxRepository;
 
 	/**
 	 * Spring Boot APP : SbJasperAngularApplication3
@@ -23,6 +29,17 @@ public class SbJasperAngularApplication3 implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO 自動生成されたメソッド・スタブ
 		dispPreSystemInfo(args);
+//		initDataMemoBox();
+	}
+
+    /**
+     * 初期データ投入処理：MemoBox
+     */
+	private void initDataMemoBox() {
+		// error:unconfigured columnfamily memobox
+		this.memoBoxRepository.deleteAll();
+    	this.memoBoxRepository.save((MemoBox) new MemoBox("a","b","tanaka1","memo1",new java.util.Date()));
+    	this.memoBoxRepository.save((MemoBox) new MemoBox("a","b","tanaka2","memo2",new java.util.Date()));
 	}
 
 	/**
