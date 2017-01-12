@@ -13,6 +13,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.data.cassandra.config.CassandraClusterFactoryBean;
 import org.springframework.data.cassandra.config.CassandraSessionFactoryBean;
 import org.springframework.data.cassandra.config.SchemaAction;
+import org.springframework.data.cassandra.config.java.AbstractCassandraConfiguration;
 import org.springframework.data.cassandra.convert.CassandraConverter;
 import org.springframework.data.cassandra.convert.MappingCassandraConverter;
 import org.springframework.data.cassandra.core.CassandraOperations;
@@ -66,4 +67,20 @@ public class CassandraConfig {
         mapper.setDateFormat(df);
         return mapper;
     }
+
+    // https://github.com/hidetarou2013/spring-data-examples/blob/master/cassandra/java8/src/main/java/example/springdata/cassandra/java8/CassandraConfiguration.java
+    @Configuration
+	@EnableCassandraRepositories
+	static class CassandraInnerConfig extends AbstractCassandraConfiguration {
+
+		@Override
+		public String getKeyspaceName() {
+			return "keyspaceC";
+		}
+
+		@Override
+		public SchemaAction getSchemaAction() {
+			return SchemaAction.RECREATE;
+		}
+	}
 }

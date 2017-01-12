@@ -135,6 +135,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-cassandra</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.datastax.cassandra</groupId>
+			<artifactId>cassandra-driver-core</artifactId>
+		</dependency>
 	<!-- -->
 		<!-- https://mvnrepository.com/artifact/org.apache.cassandra/cassandra-thrift
 		<dependency>
@@ -155,6 +159,27 @@
 			<artifactId>cassandra-jdbc</artifactId>
 			<version>1.2.5</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-cql</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-cassandra</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons-core -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons-core</artifactId>
+			<version>1.4.1.RELEASE</version>
+		</dependency>
+
+
 	<!--
 		<dependency>
 			<groupId>org.flywaydb</groupId>

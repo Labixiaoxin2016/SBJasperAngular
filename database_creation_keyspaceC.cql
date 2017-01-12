@@ -19,3 +19,19 @@ INSERT INTO memobox (pkey1,pkey2,id,name,memo,date) VALUES ('a','b',now(),'yamam
 SELECT * FROM memobox where pkey1='a' and pkey2='b' ORDER BY id;
 
 SELECT * FROM memobox where pkey1='a' and pkey2='b' ORDER BY id,name;
+
+DROP TABLE IF EXISTS keyspaceC.person;
+CREATE TABLE IF NOT EXISTS keyspaceC.person (
+    id text,
+    firstname text,
+    lastname text,
+    PRIMARY KEY (id)
+) ;
+
+CREATE INDEX keyspaceC_person_memo ON person ( firstname );
+CREATE INDEX keyspaceC_person_memo ON person ( lastname );
+
+INSERT INTO person (id,firstname,lastname) VALUES ('1','tanaka','tarou');
+INSERT INTO person (id,firstname,lastname) VALUES ('2','tanaka','jirou');
+
+SELECT * FROM person;

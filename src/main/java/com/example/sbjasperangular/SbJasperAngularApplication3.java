@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.example.sbjasperangular.cassandra.model.MemoBox;
+import com.example.sbjasperangular.cassandra.model.Person;
 
 @EnableAutoConfiguration
 @ComponentScan("com.example.sbjasperangular")
@@ -14,6 +15,9 @@ public class SbJasperAngularApplication3 implements CommandLineRunner {
 
 	@Autowired
 	private com.example.sbjasperangular.cassandra.repository.MemoBoxRepository memoBoxRepository;
+
+	@Autowired
+	private com.example.sbjasperangular.cassandra.repository.PersonRepository personRepository;
 
 	/**
 	 * Spring Boot APP : SbJasperAngularApplication3
@@ -30,6 +34,7 @@ public class SbJasperAngularApplication3 implements CommandLineRunner {
 		// TODO 自動生成されたメソッド・スタブ
 		dispPreSystemInfo(args);
 //		initDataMemoBox();
+//		initDataPerson();
 	}
 
     /**
@@ -40,6 +45,16 @@ public class SbJasperAngularApplication3 implements CommandLineRunner {
 		this.memoBoxRepository.deleteAll();
     	this.memoBoxRepository.save((MemoBox) new MemoBox("a","b","tanaka1","memo1",new java.util.Date()));
     	this.memoBoxRepository.save((MemoBox) new MemoBox("a","b","tanaka2","memo2",new java.util.Date()));
+	}
+
+    /**
+     * 初期データ投入処理：Person
+     */
+	private void initDataPerson() {
+		// error:unconfigured columnfamily person
+		this.personRepository.deleteAll();
+    	this.personRepository.save((Person) new Person("1","tanaka1","tarou"));
+    	this.personRepository.save((Person) new Person("2","tanaka1","takeshi"));
 	}
 
 	/**
