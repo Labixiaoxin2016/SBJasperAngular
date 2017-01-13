@@ -60,6 +60,17 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
     });
 } ])
 
+//.factory('CityCountry3', [ '$resource', function($resource) {
+//    return $resource('/rest_repository/rest_resource_citycountry', {  }, {
+//	query : {
+//	    method : 'GET',
+//	    cache : false,
+//	    isArray : false
+//	}
+//
+//    });
+//} ])
+
 .factory('Report', [ '$resource', function($resource) {
     return $resource('/ajax/report', {}, {
 	generate : {
@@ -71,7 +82,7 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 } ])
 
 .controller('CityCtrl', function($scope, $window, City, Country, Report) {
-	/* */
+	/*  */
 	City.query({}, function(data) {
 		var j = 0;
 		$scope.cities = data._embedded.all;
@@ -95,17 +106,18 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 		}
 
 	});
-	/* */
+	/*  */
 	/*
 	// [実験]なぜかうまくいかなかった。
-	CityCountry.query({
+	CityCountry3.query({
 
 	}, function(data) {
 		$windows.alert(data);
-		$scope.cities = data;// data._embedded.all
+		$scope.cities =  data._embedded.all; // data;
 		var arrayLength = $scope.cities.length;
 		for (var i = 0; i < arrayLength; i++) {
-			$scope.cities[i].name = "hoge";
+			$scope.cities[i].countryName = $scope.cities[i]._links.cityCountry2;
+		//	$scope.cities[i].countryName = "hoge";
 		}
 	});
 	 */
