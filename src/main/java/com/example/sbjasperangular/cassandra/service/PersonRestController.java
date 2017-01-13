@@ -1,8 +1,6 @@
 package com.example.sbjasperangular.cassandra.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +21,12 @@ public class PersonRestController {
 	// OK
 	@GetMapping
 	List<Person> getPersonAll() {
-        Stream<Person> st = service.findAll();
-        return st.collect(Collectors.toList());
+//        Stream<Person> st = service.findAll();
+//        return st.collect(Collectors.toList());
+		List<Person> list = service.findAll();
+		list.stream().forEach(p -> System.out.println(p.toString()));
+
+		return list;
     }
 
 }

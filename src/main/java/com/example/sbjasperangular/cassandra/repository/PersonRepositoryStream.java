@@ -2,25 +2,26 @@ package com.example.sbjasperangular.cassandra.repository;
 
 
 
-import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 import org.springframework.data.cassandra.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.Repository;
 
 import com.example.sbjasperangular.cassandra.model.Person;
 
-public interface PersonRepository extends CrudRepository<Person, String> {
+public interface PersonRepositoryStream extends Repository<Person, String> {
 	/**
 	 * Special customization of {@link CrudRepository#findOne(java.io.Serializable)} to return a JDK 8 {@link Optional}.
 	 *
 	 * @param id
 	 * @return
 	 */
-	Person findOne(String id);
+	Optional<Person> findOne(String id);
 
 	@Query("select * from person")
-	List<Person> streamAllPeople();
+	Stream<Person> streamAllPeople();
 
 	/**
 	 * Sample method to derive a query from using JDK 8's {@link Optional} as return type.
@@ -29,7 +30,7 @@ public interface PersonRepository extends CrudRepository<Person, String> {
 	 * @return
 	 */
 	@Query("select * from person where id = ?0")
-	Person findById(String id);
+	Optional<Person> findById(String id);
 
 	/**
 	 * Sample default method to show JDK 8 feature support.
@@ -37,7 +38,7 @@ public interface PersonRepository extends CrudRepository<Person, String> {
 	 * @param person
 	 * @return
 	 */
-	default Person findByPerson(Person person) {
+	default Optional<Person> findByPerson(Person person) {
 		return findById(person == null ? null : person.id);
 	}
 

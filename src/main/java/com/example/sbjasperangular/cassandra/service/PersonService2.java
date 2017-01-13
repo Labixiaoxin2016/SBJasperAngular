@@ -1,13 +1,11 @@
 package com.example.sbjasperangular.cassandra.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.sbjasperangular.cassandra.model.Person;
-import com.example.sbjasperangular.cassandra.repository.PersonRepository;
+import com.example.sbjasperangular.cassandra.repository.PersonRepository2;
 
 
 
@@ -19,18 +17,19 @@ import com.example.sbjasperangular.cassandra.repository.PersonRepository;
  * @author maekawa
  *
  */
-public class PersonService {
+public class PersonService2 {
 
 	@Autowired
-	PersonRepository repository;
+	PersonRepository2 repository;
 
-	public List<Person> findAll() {
+	public Iterable<Person> findAll() {
 //		return repository.findAllOrderByName();
-		return repository.streamAllPeople();
+		return repository.findAll();
 	}
 
 	public Person findByPerson(Person p) {
-		return repository.findByPerson(p);
+		String id = p.getId();
+		return repository.findOne(id);
 	}
 
 	public Person findOne(String id) {
@@ -38,14 +37,14 @@ public class PersonService {
 		return repository.findOne(id);
 	}
 
-	public Person create(Person memobox) {
+	public Person create(Person p) {
 		// TODO 自動生成されたメソッド・スタブ
-		return repository.save(memobox);
+		return repository.save(p);
 	}
 
-	public Person update(Person memobox) {
+	public Person update(Person p) {
 		// TODO 自動生成されたメソッド・スタブ
-		return repository.save(memobox);
+		return repository.save(p);
 	}
 
 	public void deleteAll() {
@@ -53,6 +52,9 @@ public class PersonService {
 		repository.deleteAll();
 	}
 
-
+	public void delete(String id) {
+		// TODO 自動生成されたメソッド・スタブ
+		repository.delete(id);
+	}
 
 }

@@ -17,7 +17,7 @@ public class SbJasperAngularApplication3 implements CommandLineRunner {
 	private com.example.sbjasperangular.cassandra.repository.MemoBoxRepository memoBoxRepository;
 
 	@Autowired
-	private com.example.sbjasperangular.cassandra.repository.PersonRepository personRepository;
+	private com.example.sbjasperangular.cassandra.repository.PersonRepositoryStream personRepository;
 
 	/**
 	 * Spring Boot APP : SbJasperAngularApplication3

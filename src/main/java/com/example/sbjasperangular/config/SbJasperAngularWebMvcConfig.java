@@ -59,6 +59,7 @@ public class SbJasperAngularWebMvcConfig extends WebMvcConfigurerAdapter {
 			.antMatchers("/webjars/**").permitAll()
 			.antMatchers("/ng-templates/**").permitAll()
 			.antMatchers("/rest/**").permitAll()
+			.antMatchers("/rest_repository/**").permitAll()
 			.antMatchers("/js/**").permitAll()
 
 			.anyRequest().fullyAuthenticated().and().formLogin()
