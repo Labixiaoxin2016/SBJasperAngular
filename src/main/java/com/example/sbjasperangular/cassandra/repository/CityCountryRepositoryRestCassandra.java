@@ -1,16 +1,13 @@
 package com.example.sbjasperangular.cassandra.repository;
 
-import java.util.List;
-
 import org.springframework.data.cassandra.repository.CassandraRepository;
-import org.springframework.data.cassandra.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.example.sbjasperangular.cassandra.model.CityCountry;
 
 @RepositoryRestResource(collectionResourceRel = "all", path = "rest_resource_citycountry")
 public interface CityCountryRepositoryRestCassandra extends CassandraRepository<CityCountry> {
-
+/*
 	// curl http://localhost:8080/rest/rest_resource_citycountry -i -XGET
 	// curl http://localhost:8080/rest_repository/rest_resource_citycountry -i -XGET
 
@@ -34,5 +31,5 @@ public interface CityCountryRepositoryRestCassandra extends CassandraRepository<
 	@Query("SELECT * FROM city_country WHERE pkey1='a' and pkey2='b' and name=?0 LIMIT ?1")
     Iterable<CityCountry> findByName(String name,Integer limit);
 
-
+*/
 }
