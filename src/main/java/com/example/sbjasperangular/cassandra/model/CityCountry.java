@@ -2,6 +2,8 @@ package com.example.sbjasperangular.cassandra.model;
 
 
 
+import java.io.Serializable;
+
 import org.springframework.cassandra.core.PrimaryKeyType;
 import org.springframework.data.cassandra.mapping.Column;
 import org.springframework.data.cassandra.mapping.PrimaryKeyColumn;
@@ -15,7 +17,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(value = "city_country")
-public class CityCountry  {
+public class CityCountry implements Serializable {
 
 	@PrimaryKeyColumn(name="pkey1",ordinal = 0,type = PrimaryKeyType.PARTITIONED)
 	private String pkey1;
