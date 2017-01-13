@@ -1,7 +1,6 @@
 package com.example.sbjasperangular.cassandra.service;
 
-import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,16 +24,16 @@ public class PersonService {
 	@Autowired
 	PersonRepository repository;
 
-	public Stream<Person> findAll() {
+	public List<Person> findAll() {
 //		return repository.findAllOrderByName();
 		return repository.streamAllPeople();
 	}
 
-	public Optional<Person> findByPerson(Person p) {
+	public Person findByPerson(Person p) {
 		return repository.findByPerson(p);
 	}
 
-	public Optional<Person> findOne(String id) {
+	public Person findOne(String id) {
 		// TODO 自動生成されたメソッド・スタブ
 		return repository.findOne(id);
 	}
