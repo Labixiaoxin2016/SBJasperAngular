@@ -29,7 +29,7 @@ public class CityCountry  {
     @Column()
     private Long population;
 
-    @Column()
+    @Column(value = "country_name")
     private String countryName;
 
 }
