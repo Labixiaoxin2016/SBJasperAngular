@@ -9,7 +9,8 @@
 	<packaging>jar</packaging>
 
 	<name>SBJasperAngular</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project for Spring Boot.
+Spring Boot, Spring Security, Spring Data,Spring Data JPA,Spring Data REST, Thymleaf, AngularJS, Bootstrap, JasperReports ,Cassandra</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -222,4 +223,13 @@
 	</build>
 
 
+	<scm>
+		<url>https://github.com/hidetarou2013/SBJasperAngular</url>
+		<connection>git clone git@github.com:hidetarou2013/SBJasperAngular.git </connection>
+		<developerConnection>hidetoshi_maekawa</developerConnection>
+	</scm>
+	<url>http://localhost:8080</url>
+	<issueManagement>
+		<url>https://bitbucket.org/eit201601/ajaxjavaexample_jp/issues/1/common_commit_issue</url>
+	</issueManagement>
 </project>
