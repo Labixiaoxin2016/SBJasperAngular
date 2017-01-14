@@ -231,5 +231,6 @@ Spring Boot, Spring Security, Spring Data,Spring Data JPA,Spring Data REST, Thym
 	<url>http://localhost:8080</url>
 	<issueManagement>
 		<url>https://bitbucket.org/eit201701/sbjasperangular/issues/1/common_issue_ticket</url>
+		<system>bitbucket.org</system>
 	</issueManagement>
 </project>
