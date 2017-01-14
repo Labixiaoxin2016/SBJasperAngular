@@ -25,7 +25,7 @@ public class CityCountry implements Serializable {
     @Column(nullable = false)
     private Long population;
 
-    @Column(nullable = false)
+    @Column(name = "country_name",nullable = false)
     private String countryName;
 
 }
