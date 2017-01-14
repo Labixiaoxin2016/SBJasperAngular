@@ -85,14 +85,12 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 			//
 			// ここにはバグがある。
 			var city_name = $scope.cities[i].name;
-			window.alert(i + ":" + city_name);
+//			window.alert(i + ":" + city_name);
 			Country.query({
 				resourceId : $scope.cities[i].name
 			}, function(data2) {
-//				window.alert(i + ":" + j + ":" +$scope.cities[i].name + ":" + data2.name);
-				window.alert(j + ":" + city_name + ":" + data2.name);
+//				window.alert(j + ":" + city_name + ":" + data2.name);
 				$scope.cities[j].countryName = data2.name;
-//
 				++j;
 			}
 //			++j;
