@@ -49,8 +49,10 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
     });
 } ])
 
-.factory('CityCountry2', [ '$resource', function($resource) {
-    return $resource('/rest/citycountry2', {  }, {
+.factory('CassandraCityCountry', [ '$resource', function($resource) {
+    return $resource('/rest/rest_resource_citycountry', {
+//    	resourceId : '@id'
+    }, {
 	query : {
 	    method : 'GET',
 	    cache : false,
@@ -87,38 +89,55 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 		var j = 0;
 		$scope.cities = data._embedded.all;
 		var arrayLength = $scope.cities.length;
+//		window.alert(arrayLength);
 		for (var i = 0; i < arrayLength; i++) {
 			// これでも取得できない。
 //			$scope.cities[i].countryName = $scope.cities[i]._links.country.name;
-			///*
+			//
 			// ここにはバグがある。
+			var city_name = $scope.cities[i].name;
+//			window.alert(i + ":" + city_name);
 			Country.query({
 				resourceId : $scope.cities[i].name
 			}, function(data2) {
+//				window.alert(j + ":" + city_name + ":" + data2.name);
 				$scope.cities[j].countryName = data2.name;
-//				$windows.alert($scope.cities[i].name + " " + $scope.cities[i].country);
 				++j;
 			}
 //			++j;
 			);
-//			++j;
-			// */
+//			++i;
+			//
 		}
 
 	});
 	/*  */
 	/*
-	// [実験]なぜかうまくいかなかった。
-	CityCountry3.query({
+	// [実験]
+	CityCountry.query({
 
 	}, function(data) {
-		$windows.alert(data);
-		$scope.cities =  data._embedded.all; // data;
+//		$windows.alert(data);
+		$scope.cities = data;// data
 		var arrayLength = $scope.cities.length;
-		for (var i = 0; i < arrayLength; i++) {
-			$scope.cities[i].countryName = $scope.cities[i]._links.cityCountry2;
-		//	$scope.cities[i].countryName = "hoge";
-		}
+//		window.alert(arrayLength);
+//		for (var i = 0; i < arrayLength; i++) {
+//			$scope.cities[i].name = "hoge";
+//		}
+	});
+	 */
+	/*
+	// [実験]
+	CassandraCityCountry.query({
+
+	}, function(data) {
+//		$windows.alert(data);
+		$scope.cities = data._embedded.all;// data
+		var arrayLength = $scope.cities.length;
+		window.alert(arrayLength);
+//		for (var i = 0; i < arrayLength; i++) {
+//			$scope.cities[i].name = "hoge";
+//		}
 	});
 	 */
 	$scope.report = function() {

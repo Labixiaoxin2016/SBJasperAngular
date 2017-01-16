@@ -23,10 +23,7 @@ public class PersonRestController {
 	List<Person> getPersonAll() {
 //        Stream<Person> st = service.findAll();
 //        return st.collect(Collectors.toList());
-		List<Person> list = service.findAll();
-		list.stream().forEach(p -> System.out.println(p.toString()));
-
-		return list;
+        return service.findAll();
     }
 
 }
