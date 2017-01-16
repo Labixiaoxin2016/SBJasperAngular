@@ -50,11 +50,20 @@ Spring Boot, Spring Security, Spring Data,Spring Data JPA,Spring Data REST, Thym
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!--
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		 -->
+		 <!-- -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- -->
 		<dependency>
 			<groupId>org.lazyluke</groupId>
 			<artifactId>log4jdbc-remix</artifactId>
@@ -136,11 +145,12 @@ Spring Boot, Spring Security, Spring Data,Spring Data JPA,Spring Data REST, Thym
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-cassandra</artifactId>
 		</dependency>
+	<!--
 		<dependency>
 			<groupId>com.datastax.cassandra</groupId>
 			<artifactId>cassandra-driver-core</artifactId>
 		</dependency>
-	<!-- -->
+	 -->
 		<!-- https://mvnrepository.com/artifact/org.apache.cassandra/cassandra-thrift
 		<dependency>
 			<groupId>org.apache.cassandra</groupId>
