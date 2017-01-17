@@ -83,6 +83,16 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
     });
 } ])
 
+.factory('Brm', [ '$resource', function($resource) {
+    return $resource('/ajax/brm', {}, {
+	generate : {
+	    method : 'GET',
+	    cache : false,
+	    isArray : false
+	}
+    });
+} ])
+
 .controller('CityCtrl', function($scope, $window, City, Country, Report) {
 	/*  */
 	City.query({}, function(data) {
@@ -147,4 +157,16 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 			alert(err.data.message);
 		});
 	}
-});
+})
+
+.controller('BrmCtrl', function($scope, $window, Brm) {
+
+	$scope.brm = function() {
+		Report.generate({}, $scope.cities, function(data) {
+			$window.location.href = '/jasper/brm.pdf';
+		}, function(err) {
+			alert(err.data.message);
+		});
+	}
+})
+;

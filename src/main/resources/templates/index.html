@@ -1,7 +1,8 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
-<body ng-controller="CityCtrl">
+<body >
 	<div layout:fragment="content">
+    <div ng-controller="CityCtrl">
 		<table class="table">
 			<thead>
 				<tr>
@@ -19,8 +20,12 @@
 			</tbody>
 		</table>
 		<button type="button" class="btn btn-lg btn-primary" th:text="#{get.report}" ng-click="report()"></button>
-
+		</div>
+		<div ng-controller="BrmCtrl">
+	  <button type="button" class="btn btn-lg btn-primary" th:text="#{get.brm}" ng-click="brm()"></button>
+		</div>
 		<script type="text/javascript" src="/js/city.js"></script>
+
 	</div>
 </body>
 </html>
