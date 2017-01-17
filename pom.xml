@@ -110,9 +110,9 @@ Spring Boot, Spring Security, Spring Data,Spring Data JPA,Spring Data REST, Thym
 		<dependency>
 			<groupId>com.example</groupId>
 			<artifactId>itext-2.1.7</artifactId>
-			<version>1.0</version>
+			<version>js2</version>
 			<scope>system</scope>
-			<systemPath>${basedir}/lib/itext-2.1.7.js2.jar</systemPath>
+			<systemPath>${project.basedir}/lib/itext-2.1.7.js2.jar</systemPath>
 		</dependency>
 
 		<dependency>

@@ -162,7 +162,7 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 .controller('BrmCtrl', function($scope, $window, Brm) {
 
 	$scope.brm = function() {
-		Report.generate({}, $scope.cities, function(data) {
+		Report.generate({}, {}, function(data) {
 			$window.location.href = '/jasper/brm.pdf';
 		}, function(err) {
 			alert(err.data.message);

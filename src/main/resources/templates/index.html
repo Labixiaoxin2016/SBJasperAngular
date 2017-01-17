@@ -1,28 +1,32 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
-<body >
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<body>
 	<div layout:fragment="content">
-    <div ng-controller="CityCtrl">
-		<table class="table">
-			<thead>
-				<tr>
-					<th th:text="#{city.name}"></th>
-					<th th:text="#{city.population}"></th>
-					<th th:text="#{city.country}"></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="city in cities">
-					<td>{{city.name}}</td>
-					<td>{{city.population}}</td>
-					<td>{{city.countryName}}</td>
-				</tr>
-			</tbody>
-		</table>
-		<button type="button" class="btn btn-lg btn-primary" th:text="#{get.report}" ng-click="report()"></button>
+		<div ng-controller="CityCtrl">
+			<table class="table">
+				<thead>
+					<tr>
+						<th th:text="#{city.name}"></th>
+						<th th:text="#{city.population}"></th>
+						<th th:text="#{city.country}"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="city in cities">
+						<td>{{city.name}}</td>
+						<td>{{city.population}}</td>
+						<td>{{city.countryName}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<button type="button" class="btn btn-lg btn-primary"
+				th:text="#{get.report}" ng-click="report()"></button>
 		</div>
 		<div ng-controller="BrmCtrl">
-	  <button type="button" class="btn btn-lg btn-primary" th:text="#{get.brm}" ng-click="brm()"></button>
+			<button type="button" class="btn btn-lg btn-primary"
+				th:text="#{get.brm}" ng-click="brm()"></button>
 		</div>
 		<script type="text/javascript" src="/js/city.js"></script>
 
