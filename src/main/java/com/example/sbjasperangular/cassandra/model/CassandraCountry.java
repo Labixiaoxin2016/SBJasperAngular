@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(value = "city_country")
-public class CityCountry {
+@Table(value = "cassandra_country")
+public class CassandraCountry {
 
 //	@PrimaryKeyColumn(name="pkey1",ordinal = 0,type = PrimaryKeyType.PARTITIONED)
 	private String pkey1;
@@ -24,12 +24,9 @@ public class CityCountry {
 
 //	@PrimaryKeyColumn(name = "name",ordinal = 2,type = PrimaryKeyType.CLUSTERED)
 	@Id
-	private String name;
+	private String id;
 
-    @Column()
-    private Long population;
-
-    @Column(value = "country_name")
-    private String countryName;
+    @Column(value = "name")
+    private String name;
 
 }

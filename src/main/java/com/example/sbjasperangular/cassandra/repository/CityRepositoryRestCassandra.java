@@ -3,13 +3,13 @@ package com.example.sbjasperangular.cassandra.repository;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.example.sbjasperangular.cassandra.model.CassandraCityCountry;
+import com.example.sbjasperangular.cassandra.model.CassandraCity;
 
-@RepositoryRestResource(collectionResourceRel = "all", path = "rest_resource_citycountry")
-public interface CityCountryRepositoryRestCassandra extends CassandraRepository<CassandraCityCountry> {
+@RepositoryRestResource(collectionResourceRel = "all", path = "rest_resource_city")
+public interface CityRepositoryRestCassandra extends CassandraRepository<CassandraCity> {
 /*
-	// curl http://localhost:8080/rest/rest_resource_citycountry -i -XGET
-	// curl http://localhost:8080/rest_repository/rest_resource_citycountry -i -XGET
+	// curl http://localhost:8080/rest/rest_resource_city -i -XGET
+	// curl http://localhost:8080/rest_repository/rest_resource_city -i -XGET
 
 	@Query("SELECT * FROM city_country where pkey1='a' and pkey2='b' ORDER BY name")
     List<CityCountry> findAllOrderByName();

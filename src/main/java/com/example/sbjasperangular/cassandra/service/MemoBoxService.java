@@ -20,7 +20,7 @@ public class MemoBoxService {
 	MemoBoxRepository repository;
 
 	public List<MemoBox> findAll() {
-//		return repository.findAllOrderByName();
+//		return cityRepository.findAllOrderByName();
 		return repository.findAllOrderById();
 	}
 
@@ -55,7 +55,7 @@ public class MemoBoxService {
 
 	// neither slice nor page queries are supported yet
 //	public Page<MemoBox> findAll(Pageable pageable) {
-//        return repository.findAllOrderByName(pageable);
+//        return cityRepository.findAllOrderByName(pageable);
 //    }
 
 

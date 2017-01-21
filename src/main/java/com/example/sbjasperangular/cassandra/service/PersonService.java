@@ -25,7 +25,7 @@ public class PersonService {
 	PersonRepository repository;
 
 	public List<Person> findAll() {
-//		return repository.findAllOrderByName();
+//		return cityRepository.findAllOrderByName();
 		return repository.streamAllPeople();
 	}
 
