@@ -101,8 +101,8 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 		$window,
 //		City,
 //		Country,
-		CassandraCityCountry,
-//		CassandraCityCountryJoin,
+//		CassandraCityCountry,
+		CassandraCityCountryJoin,
 		Report) {
 	/*
 	City.query({}, function(data) {
@@ -146,7 +146,7 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 //		}
 	});
 	 */
-	/* */
+	/*
 	// [実験]
 	CassandraCityCountry.query({
 
@@ -159,8 +159,8 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 //			$scope.cities[i].name = "hoge";
 //		}
 	});
+	 */
 	/* */
-	/*
 	// [実験]
 	CassandraCityCountryJoin.query({
 
@@ -168,12 +168,12 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 //		$windows.alert(data);
 		$scope.cities = data;// data
 		var arrayLength = $scope.cities.length;
-		window.alert(arrayLength);
+//		window.alert(arrayLength);
 //		for (var i = 0; i < arrayLength; i++) {
 //			$scope.cities[i].name = "hoge";
 //		}
 	});
-	 */
+	/* */
 	$scope.report = function() {
 		Report.generate({}, $scope.cities, function(data) {
 			$window.location.href = '/jasper/report.pdf';
