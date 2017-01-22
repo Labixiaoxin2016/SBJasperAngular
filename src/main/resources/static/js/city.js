@@ -51,12 +51,25 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 
 .factory('CassandraCityCountry', [ '$resource', function($resource) {
     return $resource('/rest/rest_resource_citycountry', {
-//    	resourceId : '@id'
+    	resourceId : '@id'
     }, {
 	query : {
 	    method : 'GET',
 	    cache : false,
 	    isArray : false
+	}
+
+    });
+} ])
+
+.factory('CassandraCityCountryJoin', [ '$resource', function($resource) {
+    return $resource('/rest/cassandra/city_country_join', {
+//    	resourceId : '@id'
+    }, {
+	query : {
+	    method : 'GET',
+	    cache : false,
+	    isArray : true
 	}
 
     });
@@ -83,8 +96,15 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
     });
 } ])
 
-.controller('CityCtrl', function($scope, $window, City, Country, Report) {
-	/*  */
+.controller('CityCtrl', function(
+		$scope,
+		$window,
+//		City,
+//		Country,
+		CassandraCityCountry,
+//		CassandraCityCountryJoin,
+		Report) {
+	/*
 	City.query({}, function(data) {
 		var j = 0;
 		$scope.cities = data._embedded.all;
@@ -111,7 +131,7 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 		}
 
 	});
-	/*  */
+	  */
 	/*
 	// [実験]
 	CityCountry.query({
@@ -126,13 +146,27 @@ angular.module('com.example.sbjasperangular', [ 'ui.bootstrap', 'ngResource' ])
 //		}
 	});
 	 */
-	/*
+	/* */
 	// [実験]
 	CassandraCityCountry.query({
 
 	}, function(data) {
 //		$windows.alert(data);
 		$scope.cities = data._embedded.all;// data
+		var arrayLength = $scope.cities.length;
+//		window.alert(arrayLength);
+//		for (var i = 0; i < arrayLength; i++) {
+//			$scope.cities[i].name = "hoge";
+//		}
+	});
+	/* */
+	/*
+	// [実験]
+	CassandraCityCountryJoin.query({
+
+	}, function(data) {
+//		$windows.alert(data);
+		$scope.cities = data;// data
 		var arrayLength = $scope.cities.length;
 		window.alert(arrayLength);
 //		for (var i = 0; i < arrayLength; i++) {
