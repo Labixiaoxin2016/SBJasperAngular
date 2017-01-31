@@ -12,10 +12,12 @@ import org.springframework.stereotype.Component;
 import com.example.sbjasperangular.model.City;
 import com.example.sbjasperangular.model.CityCountry;
 import com.example.sbjasperangular.model.Country;
+import com.example.sbjasperangular.model.MLabel;
 import com.example.sbjasperangular.report.CustomJRDataSource;
 import com.example.sbjasperangular.repository.CityCountryRepository;
 import com.example.sbjasperangular.repository.CityRepository;
 import com.example.sbjasperangular.repository.CountryRepository;
+import com.example.sbjasperangular.repository.MLabelRepository;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -36,6 +38,31 @@ public class ApiService {
 	private CountryRepository countryRepository;
 	@Autowired
 	private CityCountryRepository cityCountryRepository;
+
+	@Autowired
+	private MLabelRepository mLabelRepository;
+
+
+	public void addMLabel(int labelId, String labelName, int parentLabelId) {
+		MLabel entity = new MLabel();
+		entity.setLabelId(labelId);
+		entity.setLabelName(labelName);
+		entity.setParentLabelId(parentLabelId);
+		mLabelRepository.save(entity);
+
+		System.out.println("MLabel : " + entity.toString());
+	}
+
+	public void addMLabelMono(int labelId, String labelName) {
+		MLabel entity = new MLabel();
+		entity.setLabelId(labelId);
+		entity.setLabelName(labelName);
+		entity.setParentLabelId(0);
+		mLabelRepository.save(entity);
+
+		System.out.println("MLabel : " + entity.toString());
+	}
+
 
 	/**
 	 * あらかじめ結合済みのEntity Modelを用意し、そこに格納する。画面と１：１の関係にしやすい。
