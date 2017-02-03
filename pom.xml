@@ -189,6 +189,12 @@ Spring Boot, Spring Security, Spring Data,Spring Data JPA,Spring Data REST, Thym
 			<artifactId>spring-data-commons-core</artifactId>
  			<version>1.4.1.RELEASE</version>
 		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-releasetrain -->
+		<!-- <dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-releasetrain</artifactId>
+		    <version>Ingalls-RC1</version>
+		</dependency> -->
 
 
 	<!--
