@@ -1,3 +1,4 @@
+USE keyspaceC;
 
 /* Drop Tables */
 
