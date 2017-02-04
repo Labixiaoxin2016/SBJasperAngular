@@ -1,0 +1,54 @@
+CREATE KEYSPACE IF NOT EXISTS keyspaceC WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}  AND durable_writes = true;
+
+USE keyspaceC;
+
+DROP TABLE IF EXISTS keyspaceC.M_LABEL;
+CREATE TABLE IF NOT EXISTS keyspaceC.M_LABEL
+(
+	pkey1 text,
+	pkey2 text,
+	label_id int ,
+	label_name text ,
+	parent_label_id int ,
+	PRIMARY KEY ((pkey1,pkey2),label_id)
+);
+
+CREATE INDEX keyspaceC_M_LABEL_label_name ON keyspaceC.M_LABEL ( label_name );
+
+INSERT INTO keyspaceC.M_LABEL (pkey1,pkey2,label_id,label_name,parent_label_id) VALUES ('autobacks','kokyaku',1,'java',0);
+INSERT INTO keyspaceC.M_LABEL (pkey1,pkey2,label_id,label_name,parent_label_id) VALUES ('autobacks','kokyaku',2,'jdk1.7',1);
+INSERT INTO keyspaceC.M_LABEL (pkey1,pkey2,label_id,label_name,parent_label_id) VALUES ('autobacks','kokyaku',2,'jdk1.8',1);
+INSERT INTO keyspaceC.M_LABEL (pkey1,pkey2,label_id,label_name,parent_label_id) VALUES ('autobacks','kokyaku',3,'javascript',0);
+INSERT INTO keyspaceC.M_LABEL (pkey1,pkey2,label_id,label_name,parent_label_id) VALUES ('autobacks','kokyaku',4,'AngularJS',3);
+INSERT INTO keyspaceC.M_LABEL (pkey1,pkey2,label_id,label_name,parent_label_id) VALUES ('autobacks','kokyaku',5,'Angular2',3);
+
+SELECT * FROM keyspaceC.M_LABEL;
+
+DROP TABLE IF EXISTS keyspaceC.M_TAG_RELATION;
+CREATE TABLE IF NOT EXISTS keyspaceC.M_TAG_RELATION
+(
+	pkey1 text,
+	pkey2 text,
+	tag_id int  ,
+	tag_name text ,
+	parent_tag_id int,
+	attibute text ,
+	color text ,
+	target_id text ,
+	PRIMARY KEY ((pkey1,pkey2),tag_id)
+);
+
+CREATE INDEX keyspaceC_M_TAG_RELATION_tag_name ON keyspaceC.M_TAG_RELATION ( tag_name );
+CREATE INDEX keyspaceC_M_TAG_RELATION_attibute ON keyspaceC.M_TAG_RELATION ( attibute );
+CREATE INDEX keyspaceC_M_TAG_RELATION_color ON keyspaceC.M_TAG_RELATION ( color );
+CREATE INDEX keyspaceC_M_TAG_RELATION_target_id ON keyspaceC.M_TAG_RELATION ( target_id );
+
+INSERT INTO keyspaceC.M_TAG_RELATION (pkey1,pkey2,tag_id,tag_name,parent_tag_id,attibute,color,target_id) VALUES ('autobacks','kokyaku',1,'java',0,'kokyaku','red','KOK00000001');
+INSERT INTO keyspaceC.M_TAG_RELATION (pkey1,pkey2,tag_id,tag_name,parent_tag_id,attibute,color,target_id) VALUES ('autobacks','kokyaku',2,'java',0,'kokyaku','red','KOK00000002');
+INSERT INTO keyspaceC.M_TAG_RELATION (pkey1,pkey2,tag_id,tag_name,parent_tag_id,attibute,color,target_id) VALUES ('autobacks','kokyaku',3,'java',0,'kokyaku','red','KOK00000003');
+INSERT INTO keyspaceC.M_TAG_RELATION (pkey1,pkey2,tag_id,tag_name,parent_tag_id,attibute,color,target_id) VALUES ('autobacks','kokyaku',4,'javascript',0,'kokyaku','red','KOK00000002');
+
+
+SELECT * FROM keyspaceC.M_TAG_RELATION;
+
+
