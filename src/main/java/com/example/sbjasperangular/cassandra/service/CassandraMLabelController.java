@@ -12,13 +12,14 @@ import com.example.sbjasperangular.cassandra.model.CassandraMLabel;
 
 
 @RestController
-@RequestMapping("rest/cassandra/M_LABEL")
+@RequestMapping("rest/cassandra/m_label")
 public class CassandraMLabelController {
 
 	@Autowired
 	CassandraMLabelService service;
 
 	// curl http://localhost:8080/rest/cassandra/M_LABEL -i -XGET
+	// curl http://localhost:8080/rest/cassandra/m_label -i -XGET
 	// OK
 	@GetMapping
 	List<CassandraMLabel> getCassandraMLabels() {
