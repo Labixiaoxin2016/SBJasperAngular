@@ -1,0 +1,24 @@
+
+CREATE TABLE keyspaced.MAC000001
+(
+	-- 国2桁+県2桁+業種2桁+ユーザーコード10桁
+	kigyou_cd text,
+	-- ０１：顧客；０２車両；０３：伝票；０４：受付
+	attibute_id text,
+	-- 数字１から採番する。
+	label_id text,
+	-- ラベル名称
+	label_name text,
+	parent_label_id text,
+	creat_datetime timestamp ,
+	creat_user_id text,
+	update_user_id text,
+	update_datetime timestamp,
+	-- UI側の更新アセンブリID+「:」+バージョン）
+	ui_assemb_id text,
+	-- デフォルト値：０（0:有効,1:論理削除,2:保留,3:完全削除）
+	del_flg int,
+	server_assemb_id text,
+	PRIMARY KEY (kigyou_cd, attibute_id, label_id)
+);
+

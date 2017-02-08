@@ -1,0 +1,16 @@
+CREATE TABLE keyspaced.TAC000001
+(	kigyou_cd text,	
+	attibute_id text,	
+	tag_id text,
+	color text,	
+	tag_name text ,
+	creat_datetime timestamp,
+	target_id text,
+	creat_user_id text,
+	update_user_id text,
+	update_datetime timestamp,	
+	ui_assemb_id text,
+	server_assemb_id text,	
+	del_flg int,	
+	PRIMARY KEY (kigyou_cd, attibute_id, tag_id)
+);
